@@ -15,7 +15,10 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
             <li class="navbar-item mt-1">
-                <a class="nav-link" href="/main">Проводки</a>
+                <a class="nav-link" href="/containers">Контейнеры</a>
+            </li>
+            <li class="navbar-item mt-1">
+                <a class="nav-link" href="/drivers">Водители</a>
             </li>
             <#if isAdmin>
             <li class="nav-item mt-1">

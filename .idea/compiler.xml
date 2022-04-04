@@ -7,13 +7,9 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="recycling" />
+        <module name="Lena-recycling" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel target="11" />
-  </component>
-  <component name="JavacSettings">
-    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
-      <module name="recycling" options="" />
-    </option>
   </component>
 </project>

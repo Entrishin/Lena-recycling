@@ -1,9 +1,10 @@
 package org.leti.Repo;
 
-import org.leti.Domain.PaymentGateway;
+import org.leti.Domain.Driver;
+import org.leti.Domain.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface PaymentGateWayRepo extends JpaRepository<PaymentGateway, Long> {
+public interface DriverRepo extends JpaRepository<Driver, Long> {
 }
