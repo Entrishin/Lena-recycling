@@ -6,7 +6,7 @@
 <@c.page>
 
     <div class="container mt-5">
-        <h3> Cписок водителей </h3>
+        <h3> Cписок контейнеров </h3>
         <!-- Таблица водителей-->
         <table
                 class="table table-striped table-bordered">

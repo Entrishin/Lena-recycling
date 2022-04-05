@@ -12,9 +12,20 @@ public class Container {
     private Long id;
 
     private String containerType;
-    private double fullness;
+    private int fullness;
     private String status;
     public String address;
+
+
+    public Double popularity; //"популярность" контейнера - характеристика, определяющая, как быстро наполняется контейнер 0 - медленно, 1 - быстро
+
+    public Double getPopularity() {
+        return popularity;
+    }
+
+    public void setPopularity(Double popularity) {
+        this.popularity = popularity;
+    }
 
     public String getAddress() {
         return address;
@@ -40,11 +51,11 @@ public class Container {
         this.containerType = containerType;
     }
 
-    public double getFullness() {
+    public int getFullness() {
         return fullness;
     }
 
-    public void setFullness(double fullness) {
+    public void setFullness(int fullness) {
         this.fullness = fullness;
     }
 

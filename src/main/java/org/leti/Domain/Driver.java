@@ -11,6 +11,7 @@ public class Driver {
 
     private String name;
     private String status;
+    private double execution_waytocontainer;
     private double execution_loading;
     private double execution_ontheway;
     private double execution_unloading;
@@ -26,6 +27,14 @@ public class Driver {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public double getExecution_waytocontainer() {
+        return execution_waytocontainer;
+    }
+
+    public void setExecution_waytocontainer(double execution_waytocontainer) {
+        this.execution_waytocontainer = execution_waytocontainer;
     }
 
     public String getAdressTo() {
