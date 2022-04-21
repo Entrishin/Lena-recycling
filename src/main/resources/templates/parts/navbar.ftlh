@@ -20,6 +20,12 @@
             <li class="navbar-item mt-1">
                 <a class="nav-link" href="/drivers">Водители</a>
             </li>
+            <li class="navbar-item mt-1">
+                <a class="nav-link" href="/counterparty/1">Контрагенты</a>
+            </li>
+            <li class="navbar-item mt-1">
+                <a class="nav-link" href="/storages">Склады</a>
+            </li>
             <#if isAdmin>
             <li class="nav-item mt-1">
                 <a class="nav-link" href="/user">Список пользователей</a>

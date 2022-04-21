@@ -5,11 +5,13 @@
     <div class="container mt-5">
         <h3> Cписок водителей </h3>
         <!-- Таблица всех контейнеров-->
+        <input class="form-control" id="myInput" type="text" placeholder="Поиск по таблице">
         <table
                 class="table table-striped table-bordered">
             <thead>
             <tr>
                 <th>Водитель</th>
+                <th>Контрагент</th>
                 <th>Контейнер</th>
                 <th>Адрес контейнера</th>
                 <th>Адрес склада</th>
@@ -19,13 +21,21 @@
                 <th>Выгрузка</th>
             </tr>
             </thead>
-            <tbody>
+            <tbody id="myTable">
 
             <#list drivers as dr>
                 <tr>
                     <td>${dr.getId()}</td>
-                    <td>${dr.getContainer_id().getId()}</td>
-                    <td>${dr.getContainer_id().getAddress()}</td>
+                    <td>
+                        <a href="/counterparty/${dr.getCounterparty().getName()}">${dr.getCounterparty().getName()}</a>
+                    </td>
+                    <#if dr.getContainer_id()??>
+                        <td>${dr.getContainer_id().getId()}</td>
+                        <td>${dr.getContainer_id().getAddress()}</td>
+                    <#else>
+                        <td></td>
+                        <td></td>
+                    </#if>
                     <td>${dr.getAdressTo()}</td>
 
                     <td>

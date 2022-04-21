@@ -21,6 +21,18 @@ public class Driver {
     @JoinColumn(name = "container_id")
     private Container container_id;
 
+    @OneToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "counterparty_id")
+    private Counterparty counterparty;
+
+    public Counterparty getCounterparty() {
+        return counterparty;
+    }
+
+    public void setCounterparty(Counterparty counterparty) {
+        this.counterparty = counterparty;
+    }
+
     public Long getId() {
         return id;
     }

@@ -14,8 +14,19 @@ public class Container {
     private String containerType;
     private int fullness;
     private String status;
-    public String address;
+    private String address;
 
+    @OneToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "counterparty_id")
+    private Counterparty counterparty;
+
+    public Counterparty getCounterparty() {
+        return counterparty;
+    }
+
+    public void setCounterparty(Counterparty counterparty) {
+        this.counterparty = counterparty;
+    }
 
     public Double popularity; //"популярность" контейнера - характеристика, определяющая, как быстро наполняется контейнер 0 - медленно, 1 - быстро
 

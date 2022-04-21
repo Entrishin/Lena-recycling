@@ -8,23 +8,30 @@
     <div class="container mt-5">
         <h3> Cписок контейнеров </h3>
         <!-- Таблица водителей-->
+        <input class="form-control" id="myInput" type="text" placeholder="Поиск по таблице">
         <table
                 class="table table-striped table-bordered">
             <thead>
             <tr>
                 <th>Номер контейнера</th>
                 <th>Тип контейнера</th>
+                <th>Контрагент</th>
                 <th>Адрес</th>
                 <th>Заполненность</th>
                 <th>Статус</th>
             </tr>
             </thead>
-            <tbody>
+            <tbody id="myTable">
 
             <#list containers as tr>
                 <tr>
                     <td>${tr.getId()}</td>
                     <td>${tr.getContainerType()}</td>
+
+                    <td>
+                        <a href="/counterparty/${tr.getCounterparty().getName()}">${tr.getCounterparty().getName()}</a>
+                    </td>
+
                     <td>${tr.getAddress()}</td>
                     <td>
                         <div class="progress">

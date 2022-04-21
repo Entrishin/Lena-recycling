@@ -1,6 +1,7 @@
 package org.leti.Service;
 
 import org.leti.Domain.Container;
+import org.leti.Domain.Counterparty;
 import org.leti.Repo.ContainerRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
@@ -15,6 +16,13 @@ import java.util.List;
 public class ContainerService {
     @Autowired
     ContainerRepo containerRepo;
+    @Autowired
+    CounterpartyService counterpartyService;
+
+
+    public void updateContainer(Container container) {
+        containerRepo.save(container);
+    }
 
     public List<Container> getAllContainers() {
         List<Container> allContainers = containerRepo.findAll();
@@ -48,12 +56,17 @@ public class ContainerService {
                     cont.setFullness(cont.getFullness() + 1);
                     containerRepo.save(cont);
                 }
+            } else if (cont.getStatus().equals("Работает")) {
+                cont.setStatus("Заполнен");
+                containerRepo.save(cont);
             }
         }
     }
     public void fillDbWithContainers(int n) {
+        List<Long> counterPartiesIds = counterpartyService.getAllIds();
         //очистить базу контейнеров сначала
         containerRepo.deleteAll();
+
 
         //типы контейнера
         List<String> contTypes = new ArrayList<>();
@@ -80,8 +93,17 @@ public class ContainerService {
             cont.setContainerType( contTypes.get((int) (Math.random()*4)));
             cont.setPopularity(Math.random());
             cont.setStatus("Работает");
+            Long counterpartyId = counterPartiesIds.get((int) (Math.random() * counterPartiesIds.size()));
+            cont.setCounterparty(counterpartyService.getById(counterpartyId));
+
             containerRepo.save(cont);
         }
 
     }
+
+    public Container getById(Long id) {
+        return containerRepo.findById(id).get();
+    }
+
+
 }
