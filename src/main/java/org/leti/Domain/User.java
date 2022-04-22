@@ -17,7 +17,9 @@ public class User implements UserDetails {
     private String password;
     private String fullName;
     private String email;
+    //код активации для подтверждения почты при регистрации
     private String activationCode;
+    // активен ли пользователь
     private boolean active;
 
     @ElementCollection(targetClass = Role.class, fetch = FetchType.EAGER)

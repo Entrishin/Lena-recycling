@@ -4,6 +4,7 @@ package org.leti.Domain;
 import javax.persistence.*;
 import javax.persistence.Id;
 
+//контейнер
 @Entity
 @Table(name = "container")
 public class Container {
@@ -11,11 +12,15 @@ public class Container {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+    //тип контейнра стекло/пластик/бумага
     private String containerType;
+    //степень наполненности контейнера 1-100
     private int fullness;
+    //статус - заполняется/заполнен (случаи поломки и т.д. не делал)
     private String status;
+    //адрес контейнера
     private String address;
-
+    //внешний ключ к контрагенту
     @OneToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "counterparty_id")
     private Counterparty counterparty;

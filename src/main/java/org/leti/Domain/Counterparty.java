@@ -2,14 +2,18 @@ package org.leti.Domain;
 
 import javax.persistence.*;
 
+//контрагент
 @Entity
 @Table(name = "counterparty")
 public class Counterparty {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+    //название компании
     private String name;
+    //инн
     private String inn;
+    //кпп
     private String kpp;
 
     public Long getId() {

@@ -2,6 +2,8 @@ package org.leti.Domain;
 
 import javax.persistence.*;
 
+
+//класс
 @Entity
 @Table(name = "storage")
 public class Storage {
@@ -9,18 +11,23 @@ public class Storage {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+    //адрес склада
     private String address;
 
+    // внешний ключ таблица контрагентов
     @OneToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "counterparty_id")
     private Counterparty counterparty;
 
+    //определяет степень выполнения операции recycling - переработка от 1 до 100
     private double execution_recycling;
 
+    //внешний ключ к таблице контейнеров
     @OneToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "container_id")
     private Container container_id;
 
+    //статус склада (не используется пока)
     private String status;
 
     public String getStatus() {

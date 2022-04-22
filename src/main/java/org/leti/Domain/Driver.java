@@ -2,6 +2,8 @@ package org.leti.Domain;
 
 import javax.persistence.*;
 
+
+//водитель
 @Entity
 @Table(name = "driver")
 public class Driver {
@@ -9,18 +11,28 @@ public class Driver {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+    //имя (не используется)
     private String name;
+    //статус - в работе "Working" или ожидает наполнения контейнера "Ok"
     private String status;
+    // execution - Означает, что это выполнение чего-то, т.е. на сайте отображается в виде полоски процентов от 1 до 100
+    //waytocontainer - в пути до контейнера
+    //loading - погрузка
+    //ontheway (на схеме я назвал это waytostorage) - в пути до склада
+    //unloading - разгрузка
     private double execution_waytocontainer;
     private double execution_loading;
     private double execution_ontheway;
     private double execution_unloading;
+    // адресс контейнера (не используется, т.к. берется из таблицы контейнеров по внешнему ключу container_id
     private String adressTo;
 
+    //внешний ключ к контейнеру
     @OneToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "container_id")
     private Container container_id;
 
+    //внешний ключ к контрагенту
     @OneToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "counterparty_id")
     private Counterparty counterparty;
