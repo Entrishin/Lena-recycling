@@ -99,6 +99,14 @@ public class ContainerService {
             containerRepo.save(cont);
         }
 
+        //почистить директорию с документами в JSON формате
+        String str = "src\\main\\resources\\im_doc_3";
+        File dir = new File(str);
+        for (File f : dir.listFiles()) {
+            if (!f.isDirectory())
+                f.delete();
+        }
+
     }
 
     public Container getById(Long id) {

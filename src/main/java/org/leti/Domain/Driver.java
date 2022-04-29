@@ -11,8 +11,10 @@ public class Driver {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    //имя (не используется)
+    //имя
     private String name;
+    //Номер машины
+    private String autoNum;
     //статус - в работе "Working" или ожидает наполнения контейнера "Ok"
     private String status;
     // execution - Означает, что это выполнение чего-то, т.е. на сайте отображается в виде полоски процентов от 1 до 100
@@ -75,6 +77,14 @@ public class Driver {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getAutoNum() {
+        return autoNum;
+    }
+
+    public void setAutoNum(String autoNum) {
+        this.autoNum = autoNum;
     }
 
     public String getStatus() {

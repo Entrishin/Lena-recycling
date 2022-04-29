@@ -4,6 +4,7 @@ import org.leti.Domain.Container;
 import org.leti.Domain.Driver;
 import org.leti.Domain.Storage;
 import org.leti.Repo.StorageRepo;
+import org.leti.Utils.Json;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
@@ -73,7 +74,11 @@ public class StorageService {
 
 
 
-    public void startStorageWorking(Container containerId, String storageAddress) {
+    public void startStorageWorking(Driver driver) {
+
+        Container containerId = driver.getContainer_id();//
+        String storageAddress = driver.getAdressTo();
+
         List<Storage> storages = storageRepo.findAll();
         Storage currentStorage = null;
         for (Storage storage : storages) {
@@ -87,6 +92,8 @@ public class StorageService {
             newStorage.setExecution_recycling(0);
             newStorage.setContainer_id(containerId);
             storageRepo.save(newStorage);
+            //создать json файл в папке im_doc_3
+            Json.createJsonFile(driver,newStorage);
         }
 
 

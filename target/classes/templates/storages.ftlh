@@ -1,5 +1,6 @@
 <#import "parts/common.ftlh" as c>
 
+
 <@c.page>
 
     <div class="container mt-5">
@@ -9,7 +10,6 @@
                 class="table table-striped table-bordered">
             <thead>
             <tr>
-                <th>Склад</th>
                 <th>Адрес</th>
                 <th>Контрагент</th>
             </tr>
@@ -18,7 +18,6 @@
 
             <#list uniqueStorages as unSt>
                 <tr>
-                    <td>${unSt.getId()}</td>
                     <td>${unSt.getAddress()}</td>
                     <td>${unSt.getCounterparty().getName()}</td>
                 </tr>
@@ -34,7 +33,7 @@
                 class="table table-striped table-bordered">
             <thead>
             <tr>
-                <th>Склад</th>
+                <th>ID</th>
                 <th>Адрес</th>
                 <th>Контрагент</th>
                 <th>Контейнер</th>
@@ -45,7 +44,11 @@
 
             <#list storages as st>
                 <tr>
-                    <td>${st.getId()}</td>
+
+                    <td>
+                        <a href="/doc_info/${st.getId()}">${st.getId()}</a>
+                    </td>
+
                     <td>${st.getAddress()}</td>
                     <td>${st.getCounterparty().getName()}</td>
 
@@ -62,7 +65,6 @@
                                  aria-valuemax="100" style="width: ${st.getExecution_recycling()}%" >${st.getExecution_recycling()}%</div>
                         </div>
                     </td>
-
                 </tr>
             </#list>
             </tbody>

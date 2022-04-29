@@ -7,14 +7,14 @@
         <div class="form-group row">
             <label class="col-sm-2 col-form-label" > Количество контейнеров/фандоматов  </label>
             <div class="col-sm-6">
-                <input type="number" name="numOfContainers" class = "form-control" placeholder="100" required/>
+                <input type="number" name="numOfContainers" class = "form-control" placeholder="10" required/>
             </div>
         </div>
 
         <div class="form-group row">
             <label class="col-sm-2 col-form-label"> Количество водителей </label>
             <div class="col-sm-6">
-                <input type="text" name="numOfDrivers" class = "form-control" placeholder="10" required/>
+                <input type="text" name="numOfDrivers" class = "form-control" placeholder="5" required/>
             </div>
         </div>
 

@@ -56,6 +56,14 @@
             <version>2.0.0.RELEASE</version>
         </dependency>
 
+        <!-- https://mvnrepository.com/artifact/org.json/json -->
+        <dependency>
+            <groupId>org.json</groupId>
+            <artifactId>json</artifactId>
+            <version>20210307</version>
+        </dependency>
+
+
         <dependency>
             <groupId>com.github.swisscom-blockchain</groupId>
             <artifactId>neo-rpcclient</artifactId>

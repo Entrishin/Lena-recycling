@@ -13,6 +13,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
@@ -52,6 +53,10 @@ public class DriverService {
     }
 
     public void fillDbWithDrivers(int n) {
+        //Список имен
+        ArrayList<String> names = new ArrayList<>((Arrays.asList("Сергиев Андрей Витальевич","Монахов Андрей Викторович","Григоров Александр Сергеевич", "Крюков Александр Николаевич", " Шопперт Владимир Константинович","Рычагов Дмитрий Сергеевич", "Максимов Егор Максимович","Егоров Андрей Петрович","Клишин Илья Вячеславович","Дорофеев Егор Сергеевич")));
+        //Список номеров авто
+        ArrayList<String> autoNums = new ArrayList<>((Arrays.asList("А123ВВ","Х312РС","Н222АК","У928ХХ","С291ВТ","М219ХС","Р201СС","Х912ХС","В905КЛ","С910РО","О387ОР","А013ОВ")));
         //очистить базу контейнеров сначала
         driverRepo.deleteAll();
         //получить список складов
@@ -75,6 +80,8 @@ public class DriverService {
             drv.setStatus("Ok");
             drv.setAdressTo(storages.get((int) (Math.random() * storages.size())).getAddress());
             drv.setCounterparty(counterpartyService.getById(counterPartiesIds.get((int) (Math.random() * counterPartiesIds.size()))));
+            drv.setName(names.get( (int) (Math.random()*names.size()) ));
+            drv.setAutoNum(autoNums.get( (int) (Math.random()*autoNums.size()) ));
 
             drv.setExecution_loading(0);
             drv.setExecution_ontheway(0);
@@ -145,7 +152,7 @@ public class DriverService {
             driver.setExecution_waytocontainer(0);
             driver.setExecution_loading(0);
             driver.setStatus("Ok");
-            storageService.startStorageWorking(driver.getContainer_id(), driver.getAdressTo());
+            storageService.startStorageWorking(driver);
             driver.setContainer_id(null);
 
         }
